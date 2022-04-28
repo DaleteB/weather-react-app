@@ -9,7 +9,7 @@ export default function weather(props){
       setWeatherData({
         ready: true,
        temperature: Math.round(response.data.main.temp),
-       wind: response.data.wind,
+       wind: Math.round(response.data.wind.speed),
        city: response.data.name,
        humidity: response.data.main.humidity, 
        iconUrl: "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png",
