@@ -13,7 +13,7 @@ export default function weather(props){
        wind: Math.round(response.data.wind.speed),
        city: response.data.name,
        humidity: response.data.main.humidity, 
-       icon: "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png",
+       icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
        description: response.data.weather[0].description, 
         date: new Date(response.data.dt * 1000),
       }
