@@ -20,19 +20,29 @@ let [forecast, setForecast] =useState(null);
         return(
         <div className="WeatherForecast">
             <div className="row">
-                <div className="col">
-                    <WeatherForecastDay data={forecast[0]}/>
+                {forecast.map(function(dailyForecast, index){ 
+                    if(index < 5 ){
+                    return (
+                   <div className="col" key={index}>
+                    <WeatherForecastDay data={dailyForecast}/>
                     
-                </div>
+                </div>    
+                   );     
+                    }else{
+                        return null;
+                    }
+                   
+                })}
+                
 
             </div>
         </div>    
-        )
+        );
      
     
     }else{
        
-        let apiKey = "1dd026e455e89be339a51bb26f42cafe";
+        let apiKey = "2ddd47ccd8fb738ffa299ef3a36e7e5a";
         let lat = props.coordinates.lat;
         let lon = props.coordinates.lon;
         let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
